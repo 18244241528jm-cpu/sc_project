@@ -32,7 +32,7 @@ def download_uci_har_dataset(data_root: Path):
     if (dataset_dir / "train" / "X_train.txt").exists():
         return dataset_dir
 
-    print(f"\n[Auto-Download] Dataset not found. Preparing to download...")
+    print(f"\nDataset not found. Preparing to download...")
     print(f"Target path: {dataset_dir}")
     
     # Ensure raw directory exists
@@ -51,7 +51,7 @@ def download_uci_har_dataset(data_root: Path):
         
         print("Extracting...")
         z.extractall(raw_dir)
-        print("[Auto-Download] Download and extraction complete!\n")
+        print("Download and extraction complete!\n")
         
         return dataset_dir
         
@@ -182,7 +182,7 @@ def main():
 
     try:
         # 1. Prepare Data
-        print("\n[Step 1] Data Preparation...")
+        print("\nPreparing data...")
         if args.use_custom_features:
             X_train, y_train, X_val, y_val, X_test, y_test = load_and_process_custom_features(
                 args.data_dir, val_size=args.val_size
@@ -193,7 +193,7 @@ def main():
             )
         
         # 2. Initialize Model
-        print(f"\n[Step 2] Initializing Model: {args.model.upper()} ...")
+        print(f"\nInitializing Model: {args.model.upper()} ...")
         if args.model == "lr":
             model = LogisticRegressionModel(C=args.C)
         elif args.model == "svm":
@@ -209,7 +209,7 @@ def main():
         print("Training complete.")
         
         # 4. Evaluate
-        print("\n[Step 3] Evaluation...")
+        print("\nEvaluating...")
         y_pred_val = model.predict(X_val)
         val_acc = accuracy_score(y_val, y_pred_val)
         

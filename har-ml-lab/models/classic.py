@@ -16,13 +16,9 @@ class LogisticRegressionModel:
     with a clean fit/predict interface.
     """
 
-    # C: Inverse of regularization strength. Smaller values specify stronger regularization.
     C: float = 1.0
-    # max_iter: Maximum number of iterations taken for the solvers to converge.
     max_iter: int = 1000
-    # solver: Algorithm to use in the optimization problem.
     solver: str = "lbfgs"
-    # n_jobs: Number of CPU cores used when parallelizing.
     n_jobs: int = 1
 
     # Internal variable to store the actual sklearn model
@@ -63,16 +59,8 @@ class SVMModel:
     SVM is effective in high dimensional spaces.
     """
 
-    # C: Regularization parameter. The strength of the regularization is inversely proportional to C.
-    # Must be strictly positive.
     C: float = 1.0
-    
-    # kernel: Specifies the kernel type to be used in the algorithm.
-    # 'rbf' is usually a good default.
     kernel: str = "rbf"
-    
-    # gamma: Kernel coefficient for 'rbf', 'poly' and 'sigmoid'.
-    # 'scale' uses 1 / (n_features * X.var()) as value of gamma.
     gamma: str | float = "scale"
 
     _model: Optional[SVC] = None
@@ -106,16 +94,9 @@ class RandomForestModel:
     A random forest is a meta estimator that fits a number of decision tree classifiers.
     """
     
-    # n_estimators: The number of trees in the forest.
     n_estimators: int = 100
-    
-    # max_depth: The maximum depth of the tree. If None, then nodes are expanded until all leaves are pure.
     max_depth: Optional[int] = None
-    
-    # min_samples_split: The minimum number of samples required to split an internal node.
     min_samples_split: int = 2
-    
-    # n_jobs: The number of jobs to run in parallel. -1 means using all processors.
     n_jobs: int = -1
     
     _model: Optional[RandomForestClassifier] = None

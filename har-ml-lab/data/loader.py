@@ -106,7 +106,7 @@ def load_har_signals(
     if not signals_dir.exists():
         raise FileNotFoundError(f"Signal directory not found: {signals_dir}")
         
-    # 1. Load all 9 signal files
+    # Load all 9 signal files
     loaded_signals = []
     print(f"Loading {split} raw signals from {signals_dir} ...")
     
@@ -124,11 +124,11 @@ def load_har_signals(
              
         loaded_signals.append(signal)
         
-    # 2. Stack them along the depth axis (3rd dimension)
+    # Stack them along the depth axis (3rd dimension)
     # Result shape: (N, 128, 9)
     signals = np.dstack(loaded_signals)
     
-    # 3. Load labels
+    # Load labels
     y_path = split_dir / f"y_{split}.txt"
     try:
         y = np.loadtxt(y_path).astype(int)

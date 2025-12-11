@@ -42,23 +42,23 @@ def extract_features(signals: np.ndarray) -> np.ndarray:
             
             # --- Feature Extraction ---
             
-            # 1. Mean
+            # Mean
             sample_features.append(np.mean(series))
             
-            # 2. Standard Deviation
+            # Standard Deviation
             sample_features.append(np.std(series))
             
-            # 3. Max & Min
+            # Max & Min
             sample_features.append(np.max(series))
             sample_features.append(np.min(series))
             
-            # 4. Median
+            # Median
             sample_features.append(np.median(series))
             
-            # 5. Interquartile Range (IQR)
+            # Interquartile Range (IQR)
             sample_features.append(stats.iqr(series))
             
-            # 6. Energy (Mean of squared values)
+            # Energy (Mean of squared values)
             sample_features.append(np.mean(series**2))
             
             # --- End Extraction ---
