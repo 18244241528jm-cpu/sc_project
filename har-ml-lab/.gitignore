@@ -1,0 +1,18 @@
+# Python boilerplate
+__pycache__/
+*.pyc
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Dataset (Huge files, auto-downloaded by script)
+data/raw/
+
+# Generated reports and plots
+reports/
+
+# Testing
+.pytest_cache/
+

@@ -1,0 +1,7 @@
+har-ml-lab/.venv/
+har-ml-lab/data/raw/
+har-ml-lab/reports/
+__pycache__/
+*.pyc
+.DS_Store
+
