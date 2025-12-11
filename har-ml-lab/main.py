@@ -14,7 +14,7 @@ from data.loader import load_har_signals, load_har_features
 from features import extract_features
 from models.classic import LogisticRegressionModel, SVMModel, RandomForestModel
 from plots import plot_confusion_matrix
-from report import generate_markdown_report
+# from report import generate_markdown_report
 
 def download_uci_har_dataset(data_root: Path):
     """
@@ -238,14 +238,14 @@ def main():
             )
             
             # 4. Generate Markdown Report
-            generate_markdown_report(
-                save_dir=report_path,
-                model_name=args.model.upper(),
-                feature_source="Custom (63-dim)" if args.use_custom_features else "Official (561-dim)",
-                accuracy=val_acc,
-                classification_report_str=report_str,
-                confusion_matrix_filename=cm_filename
-            )
+            # generate_markdown_report(
+            #     save_dir=report_path,
+            #     model_name=args.model.upper(),
+            #     feature_source="Custom (63-dim)" if args.use_custom_features else "Official (561-dim)",
+            #     accuracy=val_acc,
+            #     classification_report_str=report_str,
+            #     confusion_matrix_filename=cm_filename
+            # )
         
         print("\n" + "="*50)
         print("Experiment finished.")
